@@ -44,6 +44,8 @@ class BookAdmin(admin.ModelAdmin):
 admin.site.register(User, UserAdmin)
 
 # register Book with dynamic Model
+# admin.site.register() can't register same model.
+# https://dynamic-models.readthedocs.io/en/latest/
 shards = get_shards(Book)
 for shard in shards:
     name = 'Books ({})'.format(shard)
